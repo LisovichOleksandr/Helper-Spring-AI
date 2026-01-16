@@ -1,8 +1,11 @@
 package li.ai.helper.model.dto;
 
+import lombok.Data;
+
 import java.util.UUID;
 
+@Data
 public class RequestDto {
-    UUID chatId;
-    String question;
+    private UUID chatId;
+    private String question;
 }
