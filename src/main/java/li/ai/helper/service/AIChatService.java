@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public interface AIChatService {
 
-    AIChat crateAIChat(UUID uuid);
+    AIChat createAIChat(UUID uuid);
     AIChat getAIChatById(UUID uuid);
     void saveAiChat(AIChat AIChat);
 }
