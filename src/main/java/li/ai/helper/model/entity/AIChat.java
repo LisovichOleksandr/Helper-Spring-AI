@@ -25,7 +25,7 @@ public class AIChat {
 
     @OneToMany(mappedBy = "aiChat", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("createdAt ASC")
-    private List<AIChatMessage> messages;
+    private List<AIChatMessage> aiChatMessages;
 
 
     @CreationTimestamp
