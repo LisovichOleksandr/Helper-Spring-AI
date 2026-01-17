@@ -1,5 +1,6 @@
 package li.ai.helper.ai;
 
+import li.ai.helper.ai.advisor.ExpansionQueryAdviser;
 import li.ai.helper.service.AIChatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
@@ -18,13 +19,16 @@ public class ChatClientConfig {
 
     private final AIChatService aiChatService;
 
-//    @Value("${app.max-messages}")
-    private final int maxMessages = 10;
+    private final ExpansionQueryAdviser expansionQueryAdviser;
+
+    @Value("${app.maxMessages}")
+    private int maxMessages;
 
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder) {
         return builder
                 .defaultAdvisors(
+                        expansionQueryAdviser,
                         addChatMemory(1)
                 )
                 .defaultOptions(

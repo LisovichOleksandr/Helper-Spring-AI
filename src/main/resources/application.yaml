@@ -24,4 +24,6 @@ spring:
         transaction.jta.platform: org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
 
 app:
-  max-messages: 10
+  maxMessages: 10
+  expansionTemp: 0.1
+  expansionTopP: 0.2
