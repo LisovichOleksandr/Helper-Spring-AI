@@ -24,7 +24,6 @@ public class CustomPostgresChatMemory implements ChatMemory {
 
     @Override
     public void add(String conversationId, List<Message> messages) {
-        System.out.println("CustomPostgresChatMemory.add()>>>");
 
         AIChat aiChat = aiChatService.getAIChatById(UUID.fromString(conversationId));
 
@@ -42,7 +41,6 @@ public class CustomPostgresChatMemory implements ChatMemory {
 
     @Override
     public List<Message> get(String conversationId) {
-        System.out.println("CustomPostgresChatMemory.get()>>>");
         AIChat aiChat = aiChatService.getAIChatById(UUID.fromString(conversationId));
 
         if(aiChat.getAiChatMessages().isEmpty()){

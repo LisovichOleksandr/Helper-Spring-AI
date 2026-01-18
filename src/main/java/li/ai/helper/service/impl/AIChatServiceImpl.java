@@ -17,7 +17,6 @@ public class AIChatServiceImpl implements AIChatService {
 
     @Override
     public AIChat createAIChat(UUID id) {
-        System.out.println("CREATE>>>");
         return aiChatRepository.save(
                 AIChat.builder()
                         .id(id == null ? UUID.randomUUID() : id)
@@ -27,7 +26,6 @@ public class AIChatServiceImpl implements AIChatService {
 
     @Override
     public AIChat getAIChatById(UUID id) {
-        System.out.println("GET>>>");
         Optional<AIChat> byId = aiChatRepository.findById(id);
 
         return byId.orElseGet(() -> createAIChat(id));

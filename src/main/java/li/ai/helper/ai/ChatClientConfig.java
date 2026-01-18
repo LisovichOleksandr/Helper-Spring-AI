@@ -1,10 +1,12 @@
 package li.ai.helper.ai;
 
 import li.ai.helper.ai.advisor.ExpansionQueryAdviser;
+import li.ai.helper.ai.advisor.RagCustomAdviser;
 import li.ai.helper.service.AIChatService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.client.advisor.api.Advisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.mistralai.MistralAiChatOptions;
@@ -21,6 +23,8 @@ public class ChatClientConfig {
 
     private final ExpansionQueryAdviser expansionQueryAdviser;
 
+    private final RagCustomAdviser ragCustomAdviser;
+
     @Value("${app.maxMessages}")
     private int maxMessages;
 
@@ -29,7 +33,9 @@ public class ChatClientConfig {
         return builder
                 .defaultAdvisors(
                         expansionQueryAdviser,
-                        addChatMemory(1)
+                        addChatMemory(1),
+                        ragCustomAdviser,
+                        SimpleLoggerAdvisor.builder().order(4).build()
                 )
                 .defaultOptions(
                         MistralAiChatOptions.builder()

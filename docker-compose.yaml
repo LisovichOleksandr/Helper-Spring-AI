@@ -20,6 +20,8 @@ volumes:
 
 #  docker compose up -d
 
+# docker exec -it pgvector bash  =>>  psql -U user -d aidb
+
 #  docker compose down           остановить и удалить контейнеры
 #  docker compose ps             посмотреть запущенные контейнеры
 #  docker compose logs -f        логи в реальном времени

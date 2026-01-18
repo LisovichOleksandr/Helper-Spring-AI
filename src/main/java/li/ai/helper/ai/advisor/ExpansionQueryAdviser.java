@@ -31,7 +31,7 @@ public class ExpansionQueryAdviser implements BaseAdvisor {
     private final double topP;
 
     private static final PromptTemplate template = PromptTemplate.builder()
-            .template(AITemplate.TEMPLATE_2.getTemplate())
+            .template(AITemplate.PROMPT_TEMPLATE_2.getTemplate())
              .build();
 
     public static ExpansionQueryAdviserBuilder builder(
@@ -62,7 +62,7 @@ public class ExpansionQueryAdviser implements BaseAdvisor {
 
         String expansionQuery = expand(originalQuery);
 
-        log.info("expansionQuery>> Before query : {}", expansionQuery);
+        log.info("ExpansionQuery Before query : {}", expansionQuery);
 
 
         return chatClientRequest.mutate()

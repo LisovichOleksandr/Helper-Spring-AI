@@ -27,3 +27,11 @@ app:
   maxMessages: 10
   expansionTemp: 0.1
   expansionTopP: 0.2
+  chunkSize: 500
+  documentPath: "classpath:/ragdocument/**/*.txt"
+  topK: 20
+  similarityThreshold: 0.0
+
+logging:
+  level:
+    org.springframework.ai.chat.advisor: debug
